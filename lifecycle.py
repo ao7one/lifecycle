@@ -30,8 +30,13 @@ try:
     payload = response.json()
 
     # Parse output
+    print(f'{"OS Level": <15}', f'{"GA Date": <10}', f'{"EOSPS": <10}')
+
     for result in payload['results']:
-        print(result['input'], result['ga'], result['eosps'])
+        oslevel=result['input']
+        ga=result['ga']
+        eosps=result['eosps']
+        print(f'{oslevel: <15}', f'{ga: <10}', f'{eosps: <10}')
 
 except requests.RequestException as reqEx:
     print(reqEx)
